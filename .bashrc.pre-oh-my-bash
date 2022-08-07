@@ -6,12 +6,6 @@
 alias ls='ls --color=auto'
 
 alias make='make -j$(nproc --all)'
-alias poweroff='sudo poweroff'
-alias reboot='sudo reboot'
-
-#PS1='[\u@\h \W]\$ '
-#PS1='\u@\h \[\e[1;35m\]\W\[\e[m\] $ '
-#PS1='\[\e[1;35m\]\W\[\e[m\] $ '
 
 xs () {
     xpkg -a |
@@ -19,5 +13,3 @@ xs () {
             --preview-window=right:66%:wrap |
         xargs -ro xi
 }
-
-#export NO_AT_BRIDGE=1

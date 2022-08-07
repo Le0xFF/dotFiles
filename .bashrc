@@ -1,3 +1,9 @@
+# Enable the subsequent settings only in interactive sessions
+case $- in
+  *i*) ;;
+    *) return;;
+esac
+
 # Path to your oh-my-bash installation.
 export OSH=/home/leot/.oh-my-bash
 
@@ -10,7 +16,7 @@ CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="false"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -28,7 +34,7 @@ HYPHEN_INSENSITIVE="true"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -38,7 +44,7 @@ COMPLETION_WAITING_DOTS="true"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="dd/mm/yyyy"
+# HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $OSH/custom?
 # OSH_CUSTOM=/path/to/new-custom-folder
@@ -70,7 +76,14 @@ plugins=(
   bashmarks
 )
 
-source $OSH/oh-my-bash.sh
+# Which plugins would you like to conditionally load? (plugins can be found in ~/.oh-my-bash/plugins/*)
+# Custom plugins may be added to ~/.oh-my-bash/custom/plugins/
+# Example format: 
+#  if [ "$DISPLAY" ] || [ "$SSH" ]; then
+#      plugins+=(tmux-autoattach)
+#  fi
+
+source "$OSH"/oh-my-bash.sh
 
 # User configuration
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -100,27 +113,7 @@ source $OSH/oh-my-bash.sh
 # alias bashconfig="mate ~/.bashrc"
 # alias ohmybash="mate ~/.oh-my-bash"
 
-## Old .bashrc settings
+source $HOME/.bash_aliases
+source $HOME/.bash_exports
+source $HOME/.bash_functions
 
-alias make='make -j$(nproc --all)'
-alias poweroff='sudo poweroff'
-alias reboot='sudo reboot'
-
-#PS1='[\u@\h \W]\$ '
-#PS1='\u@\h \[\e[1;35m\]\W\[\e[m\] $ '
-#PS1='\[\e[1;35m\]\W\[\e[m\] $ '
-
-# Install fzf and xtools
-xs () {
-    xpkg -a |
-        fzf -m --preview 'xq {1}' \
-            --preview-window=right:66%:wrap |
-        xargs -ro xi
-}
-
-export PATH=$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin
-export XDG_DATA_DIR=$XDG_DATA_DIRS:$HOME/.local/share/flatpak/exports/share/applications
-
-#export NO_AT_BRIDGE=1 
-
-#export WINEs=$HOME/WINEs

@@ -21,7 +21,7 @@ set trimblanks
 set zap
 
 # Theme
-set titlecolor bold,lightwhite,blue
+set titlecolor bold,white,blue
 # set promptcolor lightwhite,lightblack
 set statuscolor bold,lightwhite,green
 set errorcolor bold,lightwhite,red

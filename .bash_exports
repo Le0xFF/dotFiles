@@ -1,0 +1,10 @@
+# Include flatpak apps
+export XDG_DATA_DIRS=$XDG_DATA_DIRS:/home/leot.local/share/flatpak/exports/share/applications
+
+# MangoHud always enabled
+export MANGOHUD=1
+
+# Include ~/.local/bin to PATH
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
