@@ -1,5 +1,7 @@
 # dotFiles
 
+Moved to Codeberg: https://codeberg.org/Le0xFF/dotFiles
+
 A collection of my own configuration files.
 
 ---
